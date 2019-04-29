@@ -1,5 +1,11 @@
 source "https://rubygems.org"
+gem "httparty"
+gem "nokogiri"
+gem "byebug"
 
-gem "rspec"
-gem "sqlite3"
 gem "dotenv"
+gem "pry"
+gem "rspec"
+# gem "http"
+gem "colorize"
+gem "sqlite3"
