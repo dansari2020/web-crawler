@@ -3,6 +3,7 @@ require_relative 'web_crawler/request'
 module WebCrawler
   extend Request::Actions
   def self.welcome
+
     puts 'welcome....'
   end
 end
