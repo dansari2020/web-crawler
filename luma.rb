@@ -39,9 +39,3 @@ result.each do |row|
   store.find_or_create(row)
 end
 puts result.inspect
-
-
-# define('DISABLE_WP_CRON', true);
-
-# RewriteRule ^fse-vorod$ http://fsepay.com/wp-login.php [NC,L]
-# RewriteRule ^fse-modir$ http://fsepay.com/wp-admin.php [NC,L]

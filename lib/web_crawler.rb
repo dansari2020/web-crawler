@@ -1,4 +1,5 @@
 require_relative 'web_crawler/request'
+require_relative 'web_crawler/worker'
 
 module WebCrawler
   extend Request::Actions

@@ -6,7 +6,14 @@ module WebCrawler
     module Operations
 
       def run
-        scrape_page(base_url.to_s)
+        pages_to_crawl = %w( index about contact products ... )
+        worker_pool = WebCrawler::Worker.pool(size: 5)
+        # If you need to collect the return values check out 'futures'
+        pages_to_crawl.each do |page|
+          worker_pool.process_page(page)
+        end
+
+        # scrape_page(base_url.to_s)
       end
 
       private
@@ -16,6 +23,9 @@ module WebCrawler
       end
     end
 
+    def all_links
+
+    end
     # def needle
     #   @needle ||= WebCrawler::Pool.get
     # end
