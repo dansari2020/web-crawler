@@ -1,49 +1,38 @@
-require 'thread'
 module WebCrawler
-  module Work
-    @mutex = Mutex.new
-    @pid = Process.pid
-
-    # def process_page(url)
-    #   puts url
-    # end
-
-    def self.release(thread)
-      thread.cookielist = "flush"
-      thread.cookielist = "all"
-      thread.reset
-      @mutex.synchronize { threads << thread }
+  class Work
+    def initialize(link_queue, page_queue, opts = {})
+      @link_queue = link_queue
+      @page_queue = page_queue
+      @opts = opts
     end
 
-    # Return an easy from the pool.
-    #
-    # @example Return easy.
-    #   Typhoeus::Pool.get
-    #
-    # @return [ Ethon::Easy ] The easy.
-    def self.get
-      @mutex.synchronize do
-        if @pid == Process.pid
-          threads.pop
-        else
-          # Process has forked. Clear all threads to avoid sockets being
-          # shared between processes.
-          @pid = Process.pid
-          threads.clear
-          nil
+    def run
+      loop do
+        link = @link_queue.deq
+
+        break if link == :END
+
+        @http.fetch_pages(link, referer, depth).each { |page| @page_queue << page }
+
+
+        content_page = @pages[link]
+        headers = {'content-type'=> ['text/html']}
+        Logger.info "From cache files\r\n" unless content_page.nil?
+        unless content_page
+          Logger.info "From website\r\n"
+          crawl = Crawl.new(@url)
+          # byebug
+          unless crawl.run
+            @visited_url << @url
+            @url = @urls.pop
+            next
+          end
+          @pages[@url] = content_page = crawl.response.body
+          headers = crawl.response.to_hash
         end
-      end || Thread.new
-    end
-
-    # Clear the pool
-    def self.clear
-      @mutex.synchronize {threads.clear}
-    end
-
-    private
-
-    def self.threads
-      @threads ||= []
+        page = WebCrawl::Page.new(@url, content_page, headers)
+        delay
+      end
     end
   end
 end

@@ -1,13 +1,26 @@
-require_relative 'web_crawler/request'
-require_relative 'web_crawler/worker'
+$LOAD_PATH << File.dirname(__FILE__)
+require 'byebug'
+require 'thread'
+require "logger"
+require "colorize"
+require "web_crawler/config"
+require 'web_crawler/multi_io'
+require 'web_crawler/logger'
+require 'web_crawler/page_store'
+require 'web_crawler/storage'
+require 'web_crawler/page'
+require 'web_crawler/crawl'
+require 'web_crawler/main'
+# require_relative 'web_crawler/request'
+# require_relative 'web_crawler/worker'
 
-module WebCrawler
-  extend Request::Actions
-  def self.welcome
+# module WebCrawler
+#   extend Request::Actions
+#   def self.welcome
 
-    puts 'welcome....'
-  end
-end
+#     puts 'welcome....'
+#   end
+# end
 # require 'httparty'
 # require 'nokogiri'
 #

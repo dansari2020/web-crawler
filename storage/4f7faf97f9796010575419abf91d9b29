@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+    <head >
+        <script>
+    var BASE_URL = 'http://magento-test.finology.com.my/';
+    var require = {
+        "baseUrl": "http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US"
+    };
+</script>
+        <meta charset="utf-8"/>
+<meta name="robots" content="INDEX,FOLLOW"/>
+<meta name="title" content="Men"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<meta name="format-detection" content="telephone=no"/>
+<title>Men</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/mage/calendar.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/css/styles-m.css" />
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/css/styles-l.css" />
+<link  rel="stylesheet" type="text/css"  media="print" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/css/print.css" />
+<link  rel="icon" type="image/x-icon" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/Magento_Theme/favicon.ico" />
+<link  rel="shortcut icon" type="image/x-icon" href="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/Magento_Theme/favicon.ico" />
+<script  type="text/javascript"  src="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/requirejs/require.js"></script>
+<script  type="text/javascript"  src="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/mage/requirejs/mixins.js"></script>
+<script  type="text/javascript"  src="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/requirejs-config.js"></script>
+<script  type="text/javascript"  src="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/mage/polyfill.js"></script>
+<link  rel="stylesheet" type="text/css"  media="all" href="http://magento-test.finology.com.my/pub/media/styles.css" />            </head>
+    <body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/images/loader-2.gif"}}' class="page-products categorypath-men category-men catalog-category-view page-layout-2columns-left">
+        
+<script>
+    require.config({
+        map: {
+            '*': {
+                wysiwygAdapter: 'mage/adminhtml/wysiwyg/tiny_mce/tinymce4Adapter'
+            }
+        }
+    });
+</script>
+    <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+                
+                if (versionObj.version !== '210f24bfeb9b359480ee6603f2ecbbde563aad73') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: '210f24bfeb9b359480ee6603f2ecbbde563aad73'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/",
+                "domain": ".magento-test.finology.com.my",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+    <noscript>
+        <div class="message global noscript">
+            <div class="content">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong>
+                    <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span>
+                </p>
+            </div>
+        </div>
+    </noscript>
+<div class="page-wrapper"><header class="page-header"><div class="panel wrapper"><div class="panel header"><a class="action skip contentarea" href="#contentarea"><span>Skip to Content</span></a>
+<ul class="header links">        <li class="greet welcome" data-bind="scope: 'customer'">
+            <!-- ko if: customer().fullname  -->
+            <span class="logged-in" data-bind="text: new String('Welcome, %1!').replace('%1', customer().fullname)">
+            </span>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().fullname  -->
+            <span class="not-logged-in" data-bind='html:"Default welcome msg!"'></span>
+                        <!-- /ko -->
+        </li>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    <li class="authorization-link" data-label="or">
+    <a href="http://magento-test.finology.com.my/customer/account/login/referer/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C/">
+        Sign In    </a>
+</li>
+<li><a href="http://magento-test.finology.com.my/customer/account/create/" >Create an Account</a></li></ul></div></div><div class="header content"><span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
+<a class="logo" href="http://magento-test.finology.com.my/" title="">
+    <img src="http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/images/logo.svg"
+         title=""
+         alt=""
+         width="148"         height="43"    />
+</a>
+
+<div data-block="minicart" class="minicart-wrapper">
+    <a class="action showcart" href="http://magento-test.finology.com.my/checkout/cart/"
+       data-bind="scope: 'minicart_content'">
+        <span class="text">My Cart</span>
+        <span class="counter qty empty"
+              data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+            <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
+            <span class="counter-label">
+            <!-- ko if: getCartParam('summary_count') -->
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                <!-- ko i18n: 'items' --><!-- /ko -->
+            <!-- /ko -->
+            </span>
+        </span>
+    </a>
+            <div class="block block-minicart"
+             data-role="dropdownDialog"
+             data-mage-init='{"dropdownDialog":{
+                "appendTo":"[data-block=minicart]",
+                "triggerTarget":".showcart",
+                "timeout": "2000",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </div>
+                    </div>
+        <script>
+        window.checkout = {"shoppingCartUrl":"http:\/\/magento-test.finology.com.my\/checkout\/cart\/","checkoutUrl":"http:\/\/magento-test.finology.com.my\/checkout\/","updateItemQtyUrl":"http:\/\/magento-test.finology.com.my\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"http:\/\/magento-test.finology.com.my\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"http:\/\/magento-test.finology.com.my\/","minicartMaxItemsVisible":5,"websiteId":"1","maxItemsToDisplay":10,"storeId":"1","customerLoginUrl":"http:\/\/magento-test.finology.com.my\/customer\/account\/login\/referer\/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"http:\/\/magento-test.finology.com.my\/captcha\/refresh\/","isRequired":false,"timestamp":1556822514}}};
+    </script>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":0,"display_cart_subtotal_excl_tax":1,"template":"Magento_Tax\/checkout\/minicart\/subtotal\/totals"},"children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}},"component":"Magento_Tax\/js\/view\/checkout\/minicart\/subtotal\/totals"}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]}        },
+        "*": {
+            "Magento_Ui/js/block-loader": "http://magento-test.finology.com.my/pub/static/version1555488630/frontend/Magento/luma/en_US/images/loader-1.gif"
+        }
+    }
+    </script>
+</div>
+
+
+<div class="block block-search">
+    <div class="block block-title"><strong>Search</strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form" action="http://magento-test.finology.com.my/catalogsearch/result/" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span>Search</span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"http://magento-test.finology.com.my/search/ajax/suggest/",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="q"
+                           value=""
+                           placeholder="Search entire store here..."
+                           class="input-text"
+                           maxlength="128"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                    <div class="nested">
+    <a class="action advanced" href="http://magento-test.finology.com.my/catalogsearch/advanced/" data-action="advanced-search">
+        Advanced Search    </a>
+</div>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="Search"
+                        class="action search">
+                    <span>Search</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<ul class="compare wrapper"><li class="item link compare" data-bind="scope: 'compareProducts'" data-role="compare-products-link">
+    <a class="action compare no-display" title="Compare Products"
+       data-bind="attr: {'href': compareProducts().listUrl}, css: {'no-display': !compareProducts().count}"
+    >
+        Compare Products        <span class="counter qty" data-bind="text: compareProducts().countCaption"></span>
+    </a>
+</li>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+</ul></div></header>    <div class="sections nav-sections">
+                <div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+                                            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                    <a class="nav-sections-item-switch" data-toggle="switch" href="#store.menu">Menu</a>
+                </div>
+                <div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content">
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <li  class="level0 nav-1 category-item first level-top"><a href="http://magento-test.finology.com.my/what-is-new.html"  class="level-top" ><span>What&#039;s New</span></a></li><li  class="level0 nav-2 category-item level-top parent"><a href="http://magento-test.finology.com.my/women.html"  class="level-top" ><span>Women</span></a><ul class="level0 submenu"><li  class="level1 nav-2-1 category-item first parent"><a href="http://magento-test.finology.com.my/women/tops-women.html" ><span>Tops</span></a><ul class="level1 submenu"><li  class="level2 nav-2-1-1 category-item first"><a href="http://magento-test.finology.com.my/women/tops-women/jackets-women.html" ><span>Jackets</span></a></li><li  class="level2 nav-2-1-2 category-item"><a href="http://magento-test.finology.com.my/women/tops-women/hoodies-and-sweatshirts-women.html" ><span>Hoodies &amp; Sweatshirts</span></a></li><li  class="level2 nav-2-1-3 category-item"><a href="http://magento-test.finology.com.my/women/tops-women/tees-women.html" ><span>Tees</span></a></li><li  class="level2 nav-2-1-4 category-item last"><a href="http://magento-test.finology.com.my/women/tops-women/tanks-women.html" ><span>Bras &amp; Tanks</span></a></li></ul></li><li  class="level1 nav-2-2 category-item last parent"><a href="http://magento-test.finology.com.my/women/bottoms-women.html" ><span>Bottoms</span></a><ul class="level1 submenu"><li  class="level2 nav-2-2-1 category-item first"><a href="http://magento-test.finology.com.my/women/bottoms-women/pants-women.html" ><span>Pants</span></a></li><li  class="level2 nav-2-2-2 category-item last"><a href="http://magento-test.finology.com.my/women/bottoms-women/shorts-women.html" ><span>Shorts</span></a></li></ul></li></ul></li><li  class="level0 nav-3 category-item active level-top parent"><a href="http://magento-test.finology.com.my/men.html"  class="level-top" ><span>Men</span></a><ul class="level0 submenu"><li  class="level1 nav-3-1 category-item first parent"><a href="http://magento-test.finology.com.my/men/tops-men.html" ><span>Tops</span></a><ul class="level1 submenu"><li  class="level2 nav-3-1-1 category-item first"><a href="http://magento-test.finology.com.my/men/tops-men/jackets-men.html" ><span>Jackets</span></a></li><li  class="level2 nav-3-1-2 category-item"><a href="http://magento-test.finology.com.my/men/tops-men/hoodies-and-sweatshirts-men.html" ><span>Hoodies &amp; Sweatshirts</span></a></li><li  class="level2 nav-3-1-3 category-item"><a href="http://magento-test.finology.com.my/men/tops-men/tees-men.html" ><span>Tees</span></a></li><li  class="level2 nav-3-1-4 category-item last"><a href="http://magento-test.finology.com.my/men/tops-men/tanks-men.html" ><span>Tanks</span></a></li></ul></li><li  class="level1 nav-3-2 category-item last parent"><a href="http://magento-test.finology.com.my/men/bottoms-men.html" ><span>Bottoms</span></a><ul class="level1 submenu"><li  class="level2 nav-3-2-1 category-item first"><a href="http://magento-test.finology.com.my/men/bottoms-men/pants-men.html" ><span>Pants</span></a></li><li  class="level2 nav-3-2-2 category-item last"><a href="http://magento-test.finology.com.my/men/bottoms-men/shorts-men.html" ><span>Shorts</span></a></li></ul></li></ul></li><li  class="level0 nav-4 category-item level-top parent"><a href="http://magento-test.finology.com.my/gear.html"  class="level-top" ><span>Gear</span></a><ul class="level0 submenu"><li  class="level1 nav-4-1 category-item first"><a href="http://magento-test.finology.com.my/gear/bags.html" ><span>Bags</span></a></li><li  class="level1 nav-4-2 category-item"><a href="http://magento-test.finology.com.my/gear/fitness-equipment.html" ><span>Fitness Equipment</span></a></li><li  class="level1 nav-4-3 category-item last"><a href="http://magento-test.finology.com.my/gear/watches.html" ><span>Watches</span></a></li></ul></li><li  class="level0 nav-5 category-item level-top parent"><a href="http://magento-test.finology.com.my/training.html"  class="level-top" ><span>Training</span></a><ul class="level0 submenu"><li  class="level1 nav-5-1 category-item first last"><a href="http://magento-test.finology.com.my/training/training-video.html" ><span>Video Download</span></a></li></ul></li><li  class="level0 nav-6 category-item last level-top"><a href="http://magento-test.finology.com.my/sale.html"  class="level-top" ><span>Sale</span></a></li>            </ul>
+</nav>
+</div>
+                                            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                    <a class="nav-sections-item-switch" data-toggle="switch" href="#store.links">Account</a>
+                </div>
+                <div class="section-item-content nav-sections-item-content" id="store.links" data-role="content"><!-- Account links --></div>
+                                    </div>
+    </div>
+<div class="breadcrumbs">
+    <ul class="items">
+                    <li class="item home">
+                            <a href="http://magento-test.finology.com.my/" title="Go to Home Page">Home</a>
+                        </li>
+                    <li class="item category11">
+                            <strong>Men</strong>
+                        </li>
+            </ul>
+</div>
+<main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+<div class="page-title-wrapper">
+    <h1 class="page-title"
+         id="page-title-heading"                     aria-labelledby="page-title-heading toolbar-amount"
+        >
+        <span class="base" data-ui-id="page-title-wrapper" >Men</span>    </h1>
+    </div>
+<div class="page messages"><div data-placeholder="messages"></div>
+<div data-bind="scope: 'messages'">
+    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+    <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages">
+        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+            <div data-bind="html: message.text"></div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+</div><div class="category-view">    <div class="category-cms">
+            </div>
+</div><div class="columns"><div class="column main"><div class="widget block block-static-block">
+    <div class="blocks-promo">
+    <a href="http://magento-test.finology.com.my/men.html" class="block-promo mens-main">
+        <img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-main.jpg" alt="" />
+        <span class="content">
+            <span class="info">Luma’s Performance Fabric collection</span>
+            <strong class="title">Going the extra mile just got extra comfortable</strong>
+            <span class="more button">Shop Performance</span>
+        </span>
+    </a>
+    <div class="block-promo-wrapper block-promo-2columns">
+        <a href="http://magento-test.finology.com.my/men/tops-men/tees-men.html" class="block-promo mens-t-shirts">
+            <span class="content">
+                <strong class="title">Save up to $24!</strong>
+                <img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-t-shirts.png" alt="" />
+                <span class="info">Buy 3 Luma tees, get 4 instead</span>
+                <span class="more icon">Shop Tees</span>
+            </span>
+        </a>
+        <a href="http://magento-test.finology.com.my/men/bottoms-men/pants-men.html" class="block-promo mens-pants">
+            <img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-pants.jpg" alt="" />
+            <span class="content">
+                <strong class="title">Last chance<br />for pants</strong>
+                <span class="info">Take <span>20% OFF</span>and save bigtime*</span>
+                <span class="more icon">Shop Pants</span>
+            </span>
+        </a>
+    </div>
+    <div class="block-promo-wrapper block-promo-3columns">
+        <a href="http://magento-test.finology.com.my/men/bottoms-men/shorts-men.html" class="block-promo mens-category-shorts">
+            <span class="content">
+                <strong class="title">Luma shorts</strong>
+                <span class="info">Cool it now</span>
+                <span class="more icon">Shop Shorts</span>
+            </span>
+            <span class="image"><img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-category-shorts.jpg" alt="" /></span>
+        </a>
+        <a href="http://magento-test.finology.com.my/men/tops-men/tees-men.html" class="block-promo mens-category-tees">
+            <span class="content">
+                <strong class="title">Luma tees</strong>
+                <span class="info">Grab a tee or two!</span>
+                <span class="more icon">Shop Tees</span>
+            </span>
+            <span class="image"><img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-category-tees.jpg" alt="" /></span>
+        </a>
+        <a href="http://magento-test.finology.com.my/men/tops-men/hoodies-and-sweatshirts-men.html" class="block-promo mens-category-hoodies">
+            <span class="content">
+                <strong class="title">Luma hoodies</strong>
+                <span class="info">Dress for fitness</span>
+                <span class="more icon">Shop Hoodies</span>
+            </span>
+            <span class="image"><img src="http://magento-test.finology.com.my/pub/media/wysiwyg/mens/mens-category-hoodies.jpg" alt="" /></span>
+        </a>
+    </div>
+</div>
+<div class="content-heading">
+    <h2 class="title">Hot Sellers</h2>
+    <p class="info">Favorites from Luma shoppers</p>
+</div>
+        <div class="block widget block-products-list grid">
+                <div class="block-content">
+            <!-- new_products_content_widget_grid-->            <div class="products-grid grid">
+                <ol class="product-items widget-product-grid">
+                                                                <li class="product-item">                        <div class="product-item-info">
+                            <a href="http://magento-test.finology.com.my/meteor-workout-short.html" class="product-item-photo">
+                                
+<span class="product-image-container"
+      style="width:240px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 125%;">
+        <img class="product-image-photo"
+                        src="http://magento-test.finology.com.my/pub/media/catalog/product/cache/2765542505660baab28ecd555e27366e/m/s/msh03-blue_main_1.jpg"
+            max-width="240"
+            max-height="300"
+            alt="Meteor Workout Short"/></span>
+</span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="Meteor Workout Short"
+                                       href="http://magento-test.finology.com.my/meteor-workout-short.html"
+                                       class="product-item-link">
+                                        Meteor Workout Short                                    </a>
+                                </strong>
+                                                                    <div class="product-reviews-summary short">
+        <div class="rating-summary">
+        <span class="label"><span>Rating:</span></span>
+        <div class="rating-result" title="73%">
+            <span style="width:73%"><span>73%</span></span>
+        </div>
+    </div>
+        <div class="reviews-actions">
+        <a class="action view" href="http://magento-test.finology.com.my/meteor-workout-short.html#reviews">3&nbsp;<span>Reviews</span></a>
+    </div>
+</div>
+                                
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="917" data-price-box="product-id-917">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">As low as</span>
+        <span  id="old-price-917-widget-product-grid"                data-price-amount="32.5"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$32.50</span></span>
+        </span>
+</span>
+
+
+</div>
+                                <div class="swatch-opt-917"
+     data-role="swatch-option-917"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-917]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"145":{"id":"145","code":"size","label":"Size","options":[{"id":"176","label":"32","products":["905","906","907"]},{"id":"177","label":"33","products":["908","909","910"]},{"id":"178","label":"34","products":["911","912","913"]},{"id":"179","label":"36","products":["914","915","916"]}],"position":"0"},"93":{"id":"93","code":"color","label":"Color","options":[{"id":"49","label":"Black","products":["905","908","911","914"]},{"id":"50","label":"Blue","products":["906","909","912","915"]},{"id":"53","label":"Green","products":["907","910","913","916"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"905":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"906":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"907":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"908":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"909":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"910":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"911":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"912":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"913":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"914":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"915":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}},"916":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5}},"productId":"917","chooseText":"Choose an Option...","images":[],"index":{"905":{"145":"176","93":"49"},"906":{"145":"176","93":"50"},"907":{"145":"176","93":"53"},"908":{"145":"177","93":"49"},"909":{"145":"177","93":"50"},"910":{"145":"177","93":"53"},"911":{"145":"178","93":"49"},"912":{"145":"178","93":"50"},"913":{"145":"178","93":"53"},"914":{"145":"179","93":"49"},"915":{"145":"179","93":"50"},"916":{"145":"179","93":"53"}}},
+                "jsonSwatchConfig": {"145":{"176":{"type":"0","value":"32","label":"32"},"177":{"type":"0","value":"33","label":"33"},"178":{"type":"0","value":"34","label":"34"},"179":{"type":"0","value":"36","label":"36"}},"93":{"49":{"type":"1","value":"#000000","label":"Black"},"50":{"type":"1","value":"#1857f7","label":"Blue"},"53":{"type":"1","value":"#53a828","label":"Green"}}},
+                "mediaCallback": "http://magento-test.finology.com.my/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-917]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":32.5},"basePrice":{"amount":32.5},"finalPrice":{"amount":32.5}}                }
+            }
+        }
+    }
+</script>
+                                                                    <div class="product-item-inner">
+                                        <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                    <form data-role="tocart-form" data-product-sku="MSH03" action="http://magento-test.finology.com.my/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C/product/917/" method="post">
+                                                            <input type="hidden" name="product" value="917">
+                                                            <input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0RvdkwyMWhaMlZ1ZEc4dGRHVnpkQzVtYVc1dmJHOW5lUzVqYjIwdWJYa3ZiV1Z1TG1oMGJXdyUyQy9wcm9kdWN0LzkxNy8,">
+                                                            <input name="form_key" type="hidden" value="of7vZ6p6xgqJbcKh" />                                                            <button type="submit"
+                                                                    title="Add to Cart"
+                                                                    class="action tocart primary">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                        </form>
+                                                                                                    </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-test.finology.com.my\/wishlist\/index\/add\/","data":{"product":"917","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' class="action towishlist" data-action="add-to-wishlist" title="Add&#x20;to&#x20;Wish&#x20;List">
+                                                            <span>Add to Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare" data-post='{"action":"http:\/\/magento-test.finology.com.my\/catalog\/product_compare\/add\/","data":{"product":"917","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' title="Add&#x20;to&#x20;Compare">
+                                                            <span>Add to Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                    </div>
+                                                            </div>
+                        </div>
+                                                                    </li><li class="product-item">                        <div class="product-item-info">
+                            <a href="http://magento-test.finology.com.my/geo-insulated-jogging-pant.html" class="product-item-photo">
+                                
+<span class="product-image-container"
+      style="width:240px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 125%;">
+        <img class="product-image-photo"
+                        src="http://magento-test.finology.com.my/pub/media/catalog/product/cache/2765542505660baab28ecd555e27366e/m/p/mp03-black_main_1.jpg"
+            max-width="240"
+            max-height="300"
+            alt="Geo Insulated Jogging Pant"/></span>
+</span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="Geo Insulated Jogging Pant"
+                                       href="http://magento-test.finology.com.my/geo-insulated-jogging-pant.html"
+                                       class="product-item-link">
+                                        Geo Insulated Jogging Pant                                    </a>
+                                </strong>
+                                                                    <div class="product-reviews-summary short">
+        <div class="rating-summary">
+        <span class="label"><span>Rating:</span></span>
+        <div class="rating-result" title="70%">
+            <span style="width:70%"><span>70%</span></span>
+        </div>
+    </div>
+        <div class="reviews-actions">
+        <a class="action view" href="http://magento-test.finology.com.my/geo-insulated-jogging-pant.html#reviews">2&nbsp;<span>Reviews</span></a>
+    </div>
+</div>
+                                
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="769" data-price-box="product-id-769">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">As low as</span>
+        <span  id="old-price-769-widget-product-grid"                data-price-amount="51"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$51.00</span></span>
+        </span>
+</span>
+
+
+</div>
+                                <div class="swatch-opt-769"
+     data-role="swatch-option-769"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-769]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"145":{"id":"145","code":"size","label":"Size","options":[{"id":"176","label":"32","products":["757","758","759"]},{"id":"177","label":"33","products":["760","761","762"]},{"id":"178","label":"34","products":["763","764","765"]},{"id":"179","label":"36","products":["766","767","768"]}],"position":"0"},"93":{"id":"93","code":"color","label":"Color","options":[{"id":"50","label":"Blue","products":["757","760","763","766"]},{"id":"53","label":"Green","products":["758","761","764","767"]},{"id":"58","label":"Red","products":["759","762","765","768"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"757":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"758":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"759":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"760":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"761":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"762":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"763":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"764":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"765":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"766":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"767":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}},"768":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51}},"productId":"769","chooseText":"Choose an Option...","images":[],"index":{"757":{"145":"176","93":"50"},"758":{"145":"176","93":"53"},"759":{"145":"176","93":"58"},"760":{"145":"177","93":"50"},"761":{"145":"177","93":"53"},"762":{"145":"177","93":"58"},"763":{"145":"178","93":"50"},"764":{"145":"178","93":"53"},"765":{"145":"178","93":"58"},"766":{"145":"179","93":"50"},"767":{"145":"179","93":"53"},"768":{"145":"179","93":"58"}}},
+                "jsonSwatchConfig": {"145":{"176":{"type":"0","value":"32","label":"32"},"177":{"type":"0","value":"33","label":"33"},"178":{"type":"0","value":"34","label":"34"},"179":{"type":"0","value":"36","label":"36"}},"93":{"50":{"type":"1","value":"#1857f7","label":"Blue"},"53":{"type":"1","value":"#53a828","label":"Green"},"58":{"type":"1","value":"#ff0000","label":"Red"}}},
+                "mediaCallback": "http://magento-test.finology.com.my/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-769]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":51},"basePrice":{"amount":51},"finalPrice":{"amount":51}}                }
+            }
+        }
+    }
+</script>
+                                                                    <div class="product-item-inner">
+                                        <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                    <form data-role="tocart-form" data-product-sku="MP03" action="http://magento-test.finology.com.my/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C/product/769/" method="post">
+                                                            <input type="hidden" name="product" value="769">
+                                                            <input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0RvdkwyMWhaMlZ1ZEc4dGRHVnpkQzVtYVc1dmJHOW5lUzVqYjIwdWJYa3ZiV1Z1TG1oMGJXdyUyQy9wcm9kdWN0Lzc2OS8,">
+                                                            <input name="form_key" type="hidden" value="of7vZ6p6xgqJbcKh" />                                                            <button type="submit"
+                                                                    title="Add to Cart"
+                                                                    class="action tocart primary">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                        </form>
+                                                                                                    </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-test.finology.com.my\/wishlist\/index\/add\/","data":{"product":"769","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' class="action towishlist" data-action="add-to-wishlist" title="Add&#x20;to&#x20;Wish&#x20;List">
+                                                            <span>Add to Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare" data-post='{"action":"http:\/\/magento-test.finology.com.my\/catalog\/product_compare\/add\/","data":{"product":"769","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' title="Add&#x20;to&#x20;Compare">
+                                                            <span>Add to Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                    </div>
+                                                            </div>
+                        </div>
+                                                                    </li><li class="product-item">                        <div class="product-item-info">
+                            <a href="http://magento-test.finology.com.my/argus-all-weather-tank.html" class="product-item-photo">
+                                
+<span class="product-image-container"
+      style="width:240px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 125%;">
+        <img class="product-image-photo"
+                        src="http://magento-test.finology.com.my/pub/media/catalog/product/cache/2765542505660baab28ecd555e27366e/m/t/mt07-gray_main_1.jpg"
+            max-width="240"
+            max-height="300"
+            alt="Argus All-Weather Tank"/></span>
+</span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="Argus All-Weather Tank"
+                                       href="http://magento-test.finology.com.my/argus-all-weather-tank.html"
+                                       class="product-item-link">
+                                        Argus All-Weather Tank                                    </a>
+                                </strong>
+                                                                                                    
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="700" data-price-box="product-id-700">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">As low as</span>
+        <span  id="old-price-700-widget-product-grid"                data-price-amount="22"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$22.00</span></span>
+        </span>
+</span>
+
+
+</div>
+                                <div class="swatch-opt-700"
+     data-role="swatch-option-700"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-700]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"145":{"id":"145","code":"size","label":"Size","options":[{"id":"167","label":"XS","products":["695"]},{"id":"168","label":"S","products":["696"]},{"id":"169","label":"M","products":["697"]},{"id":"170","label":"L","products":["698"]},{"id":"171","label":"XL","products":["699"]}],"position":"0"},"93":{"id":"93","code":"color","label":"Color","options":[{"id":"52","label":"Gray","products":["695","696","697","698","699"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"695":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22},"tierPrices":[],"msrpPrice":{"amount":null}},"696":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22},"tierPrices":[],"msrpPrice":{"amount":null}},"697":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22},"tierPrices":[],"msrpPrice":{"amount":null}},"698":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22},"tierPrices":[],"msrpPrice":{"amount":null}},"699":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22}},"productId":"700","chooseText":"Choose an Option...","images":[],"index":{"695":{"145":"167","93":"52"},"696":{"145":"168","93":"52"},"697":{"145":"169","93":"52"},"698":{"145":"170","93":"52"},"699":{"145":"171","93":"52"}}},
+                "jsonSwatchConfig": {"145":{"167":{"type":"0","value":"XS","label":"XS"},"168":{"type":"0","value":"S","label":"S"},"169":{"type":"0","value":"M","label":"M"},"170":{"type":"0","value":"L","label":"L"},"171":{"type":"0","value":"XL","label":"XL"}},"93":{"52":{"type":"1","value":"#8f8f8f","label":"Gray"}}},
+                "mediaCallback": "http://magento-test.finology.com.my/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-700]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":22},"basePrice":{"amount":22},"finalPrice":{"amount":22}}                }
+            }
+        }
+    }
+</script>
+                                                                    <div class="product-item-inner">
+                                        <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                    <form data-role="tocart-form" data-product-sku="MT07" action="http://magento-test.finology.com.my/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C/product/700/" method="post">
+                                                            <input type="hidden" name="product" value="700">
+                                                            <input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0RvdkwyMWhaMlZ1ZEc4dGRHVnpkQzVtYVc1dmJHOW5lUzVqYjIwdWJYa3ZiV1Z1TG1oMGJXdyUyQy9wcm9kdWN0LzcwMC8,">
+                                                            <input name="form_key" type="hidden" value="of7vZ6p6xgqJbcKh" />                                                            <button type="submit"
+                                                                    title="Add to Cart"
+                                                                    class="action tocart primary">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                        </form>
+                                                                                                    </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-test.finology.com.my\/wishlist\/index\/add\/","data":{"product":"700","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' class="action towishlist" data-action="add-to-wishlist" title="Add&#x20;to&#x20;Wish&#x20;List">
+                                                            <span>Add to Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare" data-post='{"action":"http:\/\/magento-test.finology.com.my\/catalog\/product_compare\/add\/","data":{"product":"700","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' title="Add&#x20;to&#x20;Compare">
+                                                            <span>Add to Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                    </div>
+                                                            </div>
+                        </div>
+                                                                    </li><li class="product-item">                        <div class="product-item-info">
+                            <a href="http://magento-test.finology.com.my/hero-hoodie.html" class="product-item-photo">
+                                
+<span class="product-image-container"
+      style="width:240px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: 125%;">
+        <img class="product-image-photo"
+                        src="http://magento-test.finology.com.my/pub/media/catalog/product/cache/2765542505660baab28ecd555e27366e/m/h/mh07-gray_main_2.jpg"
+            max-width="240"
+            max-height="300"
+            alt="Hero Hoodie"/></span>
+</span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="Hero Hoodie"
+                                       href="http://magento-test.finology.com.my/hero-hoodie.html"
+                                       class="product-item-link">
+                                        Hero Hoodie                                    </a>
+                                </strong>
+                                                                                                    
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="164" data-price-box="product-id-164">
+<span class="normal-price">
+    
+
+<span class="price-container price-final_price tax weee"
+        >
+            <span class="price-label">As low as</span>
+        <span  id="old-price-164-widget-product-grid"                data-price-amount="54"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$54.00</span></span>
+        </span>
+</span>
+
+
+</div>
+                                <div class="swatch-opt-164"
+     data-role="swatch-option-164"></div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-164]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": 16,
+                "jsonConfig": {"attributes":{"145":{"id":"145","code":"size","label":"Size","options":[{"id":"167","label":"XS","products":["149","150","151"]},{"id":"168","label":"S","products":["152","153","154"]},{"id":"169","label":"M","products":["155","156","157"]},{"id":"170","label":"L","products":["158","159","160"]},{"id":"171","label":"XL","products":["161","162","163"]}],"position":"0"},"93":{"id":"93","code":"color","label":"Color","options":[{"id":"49","label":"Black","products":["149","152","155","158","161"]},{"id":"52","label":"Gray","products":["150","153","156","159","162"]},{"id":"53","label":"Green","products":["151","154","157","160","163"]}],"position":"1"}},"template":"$<%- data.price %>","currencyFormat":"$%s","optionPrices":{"149":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"150":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"151":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"152":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"153":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"154":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"155":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"156":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"157":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"158":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"159":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"160":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"161":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"162":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}},"163":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54},"tierPrices":[],"msrpPrice":{"amount":null}}},"priceFormat":{"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},"prices":{"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54}},"productId":"164","chooseText":"Choose an Option...","images":[],"index":{"149":{"145":"167","93":"49"},"150":{"145":"167","93":"52"},"151":{"145":"167","93":"53"},"152":{"145":"168","93":"49"},"153":{"145":"168","93":"52"},"154":{"145":"168","93":"53"},"155":{"145":"169","93":"49"},"156":{"145":"169","93":"52"},"157":{"145":"169","93":"53"},"158":{"145":"170","93":"49"},"159":{"145":"170","93":"52"},"160":{"145":"170","93":"53"},"161":{"145":"171","93":"49"},"162":{"145":"171","93":"52"},"163":{"145":"171","93":"53"}}},
+                "jsonSwatchConfig": {"145":{"167":{"type":"0","value":"XS","label":"XS"},"168":{"type":"0","value":"S","label":"S"},"169":{"type":"0","value":"M","label":"M"},"170":{"type":"0","value":"L","label":"L"},"171":{"type":"0","value":"XL","label":"XL"}},"93":{"49":{"type":"1","value":"#000000","label":"Black"},"52":{"type":"1","value":"#8f8f8f","label":"Gray"},"53":{"type":"1","value":"#53a828","label":"Green"}}},
+                "mediaCallback": "http://magento-test.finology.com.my/swatches/ajax/media/",
+                "jsonSwatchImageSizeConfig": {"swatchImage":{"width":30,"height":20},"swatchThumb":{"height":90,"width":110}}            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-164]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": {"pattern":"$%s","precision":2,"requiredPrecision":2,"decimalSymbol":".","groupSymbol":",","groupLength":3,"integerRequired":false},
+                    "prices": {"oldPrice":{"amount":54},"basePrice":{"amount":54},"finalPrice":{"amount":54}}                }
+            }
+        }
+    }
+</script>
+                                                                    <div class="product-item-inner">
+                                        <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                    <form data-role="tocart-form" data-product-sku="MH07" action="http://magento-test.finology.com.my/checkout/cart/add/uenc/aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw%2C/product/164/" method="post">
+                                                            <input type="hidden" name="product" value="164">
+                                                            <input type="hidden" name="uenc" value="aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvY2hlY2tvdXQvY2FydC9hZGQvdWVuYy9hSFIwY0RvdkwyMWhaMlZ1ZEc4dGRHVnpkQzVtYVc1dmJHOW5lUzVqYjIwdWJYa3ZiV1Z1TG1oMGJXdyUyQy9wcm9kdWN0LzE2NC8,">
+                                                            <input name="form_key" type="hidden" value="of7vZ6p6xgqJbcKh" />                                                            <button type="submit"
+                                                                    title="Add to Cart"
+                                                                    class="action tocart primary">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                        </form>
+                                                                                                    </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-test.finology.com.my\/wishlist\/index\/add\/","data":{"product":"164","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' class="action towishlist" data-action="add-to-wishlist" title="Add&#x20;to&#x20;Wish&#x20;List">
+                                                            <span>Add to Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare" data-post='{"action":"http:\/\/magento-test.finology.com.my\/catalog\/product_compare\/add\/","data":{"product":"164","uenc":"aHR0cDovL21hZ2VudG8tdGVzdC5maW5vbG9neS5jb20ubXkvbWVuLmh0bWw,"}}' title="Add&#x20;to&#x20;Compare">
+                                                            <span>Add to Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                    </div>
+                                                            </div>
+                        </div>
+                        </li>                                    </ol>
+            </div>
+                    </div>
+    </div>
+</div>
+<input name="form_key" type="hidden" value="of7vZ6p6xgqJbcKh" /><div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+    <script>
+        window.authenticationPopup = {"autocomplete":"off","customerRegisterUrl":"http:\/\/magento-test.finology.com.my\/customer\/account\/create\/","customerForgotPasswordUrl":"http:\/\/magento-test.finology.com.my\/customer\/account\/forgotpassword\/","baseUrl":"http:\/\/magento-test.finology.com.my\/"};
+    </script>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"children":{"msp_recaptcha":{"component":"MSP_ReCaptcha\/js\/reCaptcha","displayArea":"additional-login-form-fields","configSource":"checkoutConfig","reCaptchaId":"msp-recaptcha-popup-login","zone":"login","badge":"inline","settings":{"siteKey":"","size":"normal","badge":null,"theme":"light","lang":null,"enabled":{"login":false,"create":false,"forgot":false,"contact":false}}},"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details."}}},"component":"Magento_Customer\/js\/view\/authentication-popup"}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "http\u003A\u002F\u002Fmagento\u002Dtest.finology.com.my\u002Fpub\u002Fstatic\u002Fversion1555488630\u002Ffrontend\u002FMagento\u002Fluma\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+            }
+        }
+    </script>
+</div>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":["recently_viewed_product","recently_compared_product"],"customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/account\/editpost":"*","customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items","checkout-fields"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"]},"clientSideSections":["checkout-data","cart-data"],"baseUrls":["http:\/\/magento-test.finology.com.my\/"]}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"http:\/\/magento-test.finology.com.my\/customer\/section\/load\/","expirableSectionLifetime":60,"expirableSectionNames":["cart","persistent"],"cookieLifeTime":"3600","updateSessionUrl":"http:\/\/magento-test.finology.com.my\/customer\/account\/updateSession\/"}}}</script>
+<script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/invalidation-processor":{"invalidationRules":{"website-rule":{"Magento_Customer\/js\/invalidation-rules\/website-rule":{"scopeConfig":{"websiteId":1}}}}}}}</script>
+
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"http:\/\/magento-test.finology.com.my\/page_cache\/block\/render\/id\/11\/","handles":["default","catalog_category_view","catalog_category_view_type_default","catalog_category_view_id_11","catalog_category_view_layout_update_2bea8c38de16f78b6a187cf669977b6c494ed253"],"originalRequest":{"route":"catalog","controller":"category","action":"view","uri":"\/men.html"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"http:\/\/magento-test.finology.com.my\/cookie\/index\/noCookies\/","triggers":[".action.towishlist"]}        }
+    }
+</script>
+    <script data-role="msrp-popup-template" type="text/x-magento-template">
+    <div id="map-popup-click-for-price" class="map-popup">
+        <div class="popup-header">
+            <strong class="title" id="map-popup-heading-price"></strong>
+        </div>
+        <div class="popup-content">
+            <div class="map-info-price" id="map-popup-content">
+                <div class="price-box">
+                    <div class="map-msrp" id="map-popup-msrp-box">
+                        <span class="label">Price</span>
+                        <span class="old-price map-old-price" id="map-popup-msrp">
+                            <span class="price"></span>
+                        </span>
+                    </div>
+                    <div class="map-price" id="map-popup-price-box">
+                        <span class="label">Actual Price</span>
+                        <span id="map-popup-price" class="actual-price"></span>
+                    </div>
+                </div>
+                <form action="" method="POST" class="map-form-addtocart">
+                    <input type="hidden" name="product" class="product_id" value="" />
+                    <button type="button"
+                            title="Add to Cart"
+                            class="action tocart primary">
+                        <span>Add to Cart</span>
+                    </button>
+                    <div class="additional-addtocart-box">
+                                            </div>
+                </form>
+            </div>
+            <div class="map-text" id="map-popup-text">
+                Our price is lower than the manufacturer&#039;s &quot;minimum advertised price.&quot; As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.            </div>
+        </div>
+    </div>
+    </script>
+    <script data-role="msrp-info-template" type="text/x-magento-template">
+    <div id="map-popup-what-this" class="map-popup">
+        <div class="popup-header">
+            <strong class="title" id="map-popup-heading-what-this"></strong>
+        </div>
+        <div class="popup-content">
+            <div class="map-help-text" id="map-popup-text-what-this">
+                Our price is lower than the manufacturer&#039;s &quot;minimum advertised price.&quot; As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.            </div>
+        </div>
+    </div>
+    </script>
+</div><div class="sidebar sidebar-main"><div class="widget block block-static-block">
+    <div class="categories-menu"><strong class="title"><span>Tops</span></strong>
+<ul class="items">
+    <li class="item"><a href="http://magento-test.finology.com.my/men/tops-men/hoodies-and-sweatshirts-men.html">Hoodies & Sweatshirts</a></li>
+    <li class="item"><a href="http://magento-test.finology.com.my/men/tops-men/jackets-men.html">Jackets</a></li>
+    <li class="item"><a href="http://magento-test.finology.com.my/men/tops-men/tees-men.html">Tees</a></li>
+    <li class="item"><a href="http://magento-test.finology.com.my/men/tops-men/tanks-men.html">Tanks</a></li>
+</ul>
+
+<strong class="title"><span>Bottoms</span></strong>
+<ul class="items">
+    <li class="item"><a href="http://magento-test.finology.com.my/men/bottoms-men/pants-men.html">Pants</a></li>
+    <li class="item"><a href="http://magento-test.finology.com.my/men/bottoms-men/shorts-men.html">Shorts</a></li>
+</ul>
+</div></div>
+</div><div class="sidebar sidebar-additional"><div class="block block-compare" data-bind="scope: 'compareProducts'" data-role="compare-products-sidebar">
+    <div class="block-title">
+        <strong id="block-compare-heading" role="heading" aria-level="2">Compare Products</strong>
+        <span class="counter qty no-display" data-bind="text: compareProducts().countCaption, css: {'no-display': !compareProducts().count}"></span>
+    </div>
+    <!-- ko if: compareProducts().count -->
+    <div class="block-content no-display" aria-labelledby="block-compare-heading" data-bind="css: {'no-display': !compareProducts().count}">
+        <ol id="compare-items" class="product-items product-items-names" data-bind="foreach: compareProducts().items">
+                <li class="product-item">
+                    <input type="hidden" class="compare-item-id" data-bind="value: id"/>
+                    <strong class="product-item-name">
+                        <a data-bind="attr: {href: product_url}, html: name" class="product-item-link"></a>
+                    </strong>
+                    <a href="#" data-bind="attr: {'data-post': remove_url}" title="Remove This Item" class="action delete">
+                        <span>Remove This Item</span>
+                    </a>
+                </li>
+        </ol>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <a data-bind="attr: {'href': compareProducts().listUrl}" class="action compare primary"><span>Compare</span></a>
+            </div>
+            <div class="secondary">
+                <a id="compare-clear-all" href="#" class="action clear" data-post="{&quot;action&quot;:&quot;http:\/\/magento-test.finology.com.my\/catalog\/product_compare\/clear\/&quot;,&quot;data&quot;:{&quot;uenc&quot;:&quot;&quot;,&quot;confirmation&quot;:true,&quot;confirmationMessage&quot;:&quot;Are you sure you want to remove all items from your Compare Products list?&quot;}}">
+                    <span>Clear All</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: compareProducts().count -->
+    <div class="empty">You have no items to compare.</div>
+    <!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-sidebar]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+    <div class="block block-wishlist" data-bind="scope: 'wishlist'">
+        <div class="block-title">
+            <strong role="heading" aria-level="2">My Wish List</strong>
+            <!-- ko if: wishlist().counter -->
+            <span data-bind="text: wishlist().counter" class="counter"></span>
+            <!-- /ko -->
+        </div>
+        <div class="block-content">
+            <strong class="subtitle">Last Added Items</strong>
+            <!-- ko if: wishlist().counter -->
+                <ol class="product-items no-display" id="wishlist-sidebar" data-bind="foreach: wishlist().items, css: {'no-display': null}">
+                    <li class="product-item">
+                        <div class="product-item-info">
+                            <a class="product-item-photo" data-bind="attr: { href: product_url, title: product_name }">
+                                <!-- ko template: {name: $data.image.template, data: $data.image} --><!-- /ko -->
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a data-bind="attr: { href: product_url }" class="product-item-link">
+                                        <span data-bind="html: product_name"></span>
+                                    </a>
+                                </strong>
+                                <div data-bind="html: product_price"></div>
+                                <div class="product-item-actions">
+                                    <!-- ko if: product_is_saleable_and_visible -->
+                                    <div class="actions-primary">
+                                        <!-- ko if: product_has_required_options -->
+                                        <a href="#" data-bind="attr: {'data-post': add_to_cart_params}" class="action tocart primary"><span>Add to Cart</span></a>
+                                        <!-- /ko -->
+                                        <!-- ko ifnot: product_has_required_options -->
+                                            <button type="button" class="action tocart primary" data-bind="attr: {'data-post': add_to_cart_params}"><span>Add to Cart</span></button>
+                                        <!-- /ko -->
+                                    </div>
+                                    <!-- /ko -->
+                                    <div class="actions-secondary">
+                                        <a href="#"  data-bind="attr: {'data-post': delete_item_params}"
+                                           title="Remove&#x20;This&#x20;Item"
+                                           class="btn-remove action delete">
+                                            <span>Remove This Item</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <div class="actions-toolbar no-display" data-bind="css: {'no-display': null}">
+                    <div class="primary">
+                        <a class="action details"
+                           href="http://magento-test.finology.com.my/wishlist/"
+                           title="Go&#x20;to&#x20;Wish&#x20;List"><span>Go to Wish List</span></a>
+                    </div>
+                </div>
+            <!-- /ko -->
+            <!-- ko ifnot: wishlist().counter -->
+                <div class="empty">You have no items in your wish list.</div>
+            <!-- /ko -->
+        </div>
+    </div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+</script>
+</div></div></main><footer class="page-footer"><div class="footer content"><div class="block newsletter">
+    <div class="title"><strong>Newsletter</strong></div>
+    <div class="content">
+        <form class="form subscribe"
+            novalidate
+            action="http://magento-test.finology.com.my/newsletter/subscriber/new/"
+            method="post"
+            data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+            id="newsletter-validate-detail">
+            <div class="field newsletter">
+                <label class="label" for="newsletter"><span>Sign Up for Our Newsletter:</span></label>
+                <div class="control">
+                    <input name="email" type="email" id="newsletter"
+                           placeholder="Enter your email address"
+                           data-mage-init='{"mage/trim-input":{}}'
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="action subscribe primary" title="Subscribe" type="submit">
+                    <span>Subscribe</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="links"><div class="widget block block-static-block">
+    <ul class="footer links">
+    <li class="nav item"><a href="http://magento-test.finology.com.my/about-us/">About us</a></li>
+    <li class="nav item"><a href="http://magento-test.finology.com.my/customer-service/">Customer Service</a></li>
+</ul>
+</div>
+</div><ul class="footer links"><li class="nav item"><a href="http://magento-test.finology.com.my/search/term/popular/">Search Terms</a></li><li class="nav item"><a href="http://magento-test.finology.com.my/privacy-policy-cookie-restriction-mode/">Privacy and Cookie Policy</a></li><li class="nav item"><a href="http://magento-test.finology.com.my/catalogsearch/advanced/" data-action="advanced-search">Advanced Search</a></li><li class="nav item"><a href="http://magento-test.finology.com.my/sales/guest/form/">Orders and Returns</a></li><li class="nav item"><a href="http://magento-test.finology.com.my/contact/">Contact Us</a></li></ul></div></footer><script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "storage-manager": {
+                            "component": "Magento_Catalog/js/storage-manager",
+                            "appendTo": "",
+                            "storagesConfiguration" :
+                                         {"recently_viewed_product":{"requestConfig":{"syncUrl":"http:\/\/magento-test.finology.com.my\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"http:\/\/magento-test.finology.com.my\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"http:\/\/magento-test.finology.com.my\/rest\/default\/V1\/products-render-info"},"allowToSendRequest":null}}                        }
+                    }
+                }
+            }
+        }
+</script>
+
+<small class="copyright">
+    <span>Copyright © 2013-present Magento, Inc. All rights reserved.</span>
+</small>
+</div>    </body>
+</html>
