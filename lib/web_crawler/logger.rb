@@ -13,8 +13,8 @@ module WebCrawler
         @logger = logger
       end
 
-      def info(str)
-        @logger.info(str) if WebCrawler::Config.log
+      def info(str, show = WebCrawler::Config.log)
+        @logger.info(str) if show
       end
 
       private

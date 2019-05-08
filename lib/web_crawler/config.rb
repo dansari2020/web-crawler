@@ -12,10 +12,6 @@ module WebCrawler
         @export = export
       end
 
-      def log
-        @log.nil? ? true : @log
-      end
-
       def log=(log)
         @log = log
       end

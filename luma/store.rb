@@ -69,14 +69,14 @@ module Luma
 
     def list(order_by = 'name', order_type = 'ASC')
       @list = []
-      db.execute( "select id, name, price, description from products Order by ?", "#{order_by} #{order_type}") do |row|
+      db.execute( "SELECT id, name, price, description FROM products ORDER BY #{order_by} #{order_type}") do |row|
         product = {
             name: row[1],
             price: row[2],
             description: row[3],
             extra_information: {}
         }
-        db.execute( "select style, material, pattern, climate from extra_informations where extra_informations.product_id = ?", row[0]) do |extra|
+        db.execute( "SELECT style, material, pattern, climate FROM extra_informations where extra_informations.product_id = ?", row[0]) do |extra|
           product[:extra_information] = {
               style: extra[0],
               material: extra[1],

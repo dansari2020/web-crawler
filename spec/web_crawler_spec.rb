@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe WebCrawler do
   describe "get all data" do
-    let(:response) { WebCrawler.get_all_data }
+    let(:response) { WebCrawler.crawl() }
     # WebCrawler::Request.method(name).call("http://localhost:3001")
 
     it "returns name" do

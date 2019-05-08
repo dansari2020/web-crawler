@@ -10,7 +10,7 @@ module Luma
       @store = Luma::Store.new
       @store.migrate
       @options = {
-          deep_page: 10,
+          deep_page: 20,
           ignore_urls: [
               "http://magento-test.finology.com.my/customer/",
               "http://magento-test.finology.com.my/contact/",
@@ -19,7 +19,8 @@ module Luma
               "http://magento-test.finology.com.my/search/term/popular/",
               "http://magento-test.finology.com.my/privacy-policy-cookie-restriction-mode/",
               "http://magento-test.finology.com.my/sales/guest/form/",
-              "http://magento-test.finology.com.my/checkout/cart/"
+              "http://magento-test.finology.com.my/checkout/cart/",
+              "http://magento-test.finology.com.my/about-us/"
           ]
       }
     end
@@ -38,7 +39,6 @@ module Luma
           "Extra information: #{log_extra.join(" | ")}"
       ]
       WebCrawler::Logger.info log_product.join("\r\n")
-      WebCrawler::Logger.info "=" * 100
     end
 
     def parse
@@ -46,7 +46,6 @@ module Luma
         main.on_every_page do |page|
           doc = page.doc
           next if doc.css('body.catalog-product-view').empty?
-          puts page.url
           main = doc.xpath('//main').css('div.columns div.column.main')
           extra = main.css('div.product.info.detailed div.product.data.items div#additional div.additional-attributes-wrapper.table-wrapper table#product-attribute-specs-table tbody tr')
           row = {
@@ -65,6 +64,7 @@ module Luma
           @store.find_or_create(row)
         end
       end
+      WebCrawler::Logger.info "=" * 100
       do_export if WebCrawler::Config.export
     end
 

@@ -35,7 +35,8 @@ module WebCrawler
     def run
       WebCrawler::Logger.info "Running web-crawler"
       loop do
-        Logger.info "Craweling #{@url}"
+        Logger.info ("=" * 100), true
+        Logger.info "Craweling #{@url}", true
         content_page = @pages[@url] # fetch from cache local
         unless content_page # fetch from website
           crawl = Crawl.new(@url)
@@ -57,7 +58,7 @@ module WebCrawler
         @urls.uniq!
         break if @urls.empty?
         @url = @urls.pop
-        break if !@opts[:deep_page].nil? && @visited_url.size <= @opts[:deep_page]
+        break if !@opts[:deep_page].nil? && @visited_url.size >= @opts[:deep_page]
       end
 
       self
