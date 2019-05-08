@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luma</title>
+  <style>
+  .wrapper{
+    margin: 0 auto;
+    width: 1200px;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table>
+    <% @data.each do |item| %>
+      <tr>
+        <td>Name:</td>
+        <td><%= item[:name] %></td>
+      </tr>
+      <tr>
+        <td>Price:</td>
+        <td><%= item[:price] %></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><%= item[:description] %></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table>
+            <tr>
+              <td colspan="2">Extra Information</td>
+            </tr>
+            <tr>
+              <td>Style:</td>
+              <td><%= item[:extra_information][:style] %></td>
+            </tr>
+            <tr>
+              <td>Material:</td>
+              <td><%= item[:extra_information][:material] %></td>
+            </tr>
+            <tr>
+              <td>Pattern:</td>
+              <td><%= item[:extra_information][:pattern] %></td>
+            </tr>
+            <tr>
+              <td>Climate:</td>
+              <td><%= item[:extra_information][:climate] %></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</body>
+</html>

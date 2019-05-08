@@ -45,11 +45,13 @@ module WebCrawler
         end
       end
 
-      def each
+      def list
+        list = []
         @db.execute("SELECT url, uid FROM storage ORDER BY id") do |row|
           page_content = get_file_as_string(file_path(row[1]))
-          yield row[0], page_content
+          list << [row[0], page_content]
         end
+        list
       end
 
       def size

@@ -54,3 +54,4 @@ build-iPhoneSimulator/
 db
 storage
 logs
+!/lib/web_crawler/storage/

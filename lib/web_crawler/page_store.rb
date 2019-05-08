@@ -1,7 +1,5 @@
 module WebCrawler
   class PageStore
-    # def_delegators :@storage, :keys, :values, :size, :each
-
     def initialize(storage = {})
       @storage = storage
     end
@@ -18,14 +16,10 @@ module WebCrawler
       @storage.has_url? key.to_s
     end
 
-    def each_value
-      each { |key, value| yield value }
-    end
-
-    def values
-      result = []
-      each { |key, value| result << value }
-      result
+    def on_every_page
+      @storage.list.each do |url, doc|
+        yield url, doc
+      end
     end
   end
 end

@@ -9,7 +9,7 @@ module Luma
 
     def initialize
       FileUtils.mkdir(DIR) unless Dir.exist?(DIR)
-      @db = SQLite3::Database.new('db/web_crawler.db')
+      @db = SQLite3::Database.new('db/luma.db')
     end
 
     def migrate
@@ -28,7 +28,6 @@ module Luma
           description VARCHAR
         );
         SQL
-        puts 'Product Table Created'
       end
     end
 
@@ -48,7 +47,6 @@ module Luma
             ON DELETE CASCADE
          );
         SQL
-        puts 'Extra Information Table Created'
       end
     end
 
@@ -69,9 +67,31 @@ module Luma
       )
     end
 
+    def list(order_by = 'name', order_type = 'ASC')
+      @list = []
+      db.execute( "select id, name, price, description from products Order by ?", "#{order_by} #{order_type}") do |row|
+        product = {
+            name: row[1],
+            price: row[2],
+            description: row[3],
+            extra_information: {}
+        }
+        db.execute( "select style, material, pattern, climate from extra_informations where extra_informations.product_id = ?", row[0]) do |extra|
+          product[:extra_information] = {
+              style: extra[0],
+              material: extra[1],
+              pattern: extra[2],
+              climate: extra[3]
+          }
+        end
+        @list << product
+      end
+      @list
+    end
+
     def exists?(name)
       query = "SELECT * FROM products WHERE LOWER(name)=?"
-      result = db.get_first_row query, name.dowcase
+      result = db.get_first_row query, name.downcase
       return false if result.nil?
       result
     end
@@ -80,7 +100,7 @@ module Luma
       query = "SELECT * FROM sqlite_master WHERE type='table' AND name=?"
       result = db.get_first_row query, table_name
       return false if result.nil?
-      puts "Table '#{table_name}' already exists"
+      # Table already exists
       true
     end
   end

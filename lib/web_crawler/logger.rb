@@ -14,7 +14,7 @@ module WebCrawler
       end
 
       def info(str)
-        @logger.info(str)
+        @logger.info(str) if WebCrawler::Config.log
       end
 
       private

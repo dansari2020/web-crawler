@@ -3,6 +3,7 @@ require 'uri'
 
 module WebCrawl
   class Page
+    attr_reader :url
     def initialize(url, body, headers)
       @url = url
       @body = body
