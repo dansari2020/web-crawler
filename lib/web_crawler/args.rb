@@ -8,6 +8,7 @@ module WebCrawler
       opts.on('-e', '--export PRESENTATION', 'Export Products in (csv, json, html)') {|presentation| Config.export = presentation}
       opts.on('-s', '--sort NAME', 'sort by field') {|sort| Config.sort_by = sort}
       opts.on('-t', '--sort-type TYPE', 'Sort type (ASC/DESC)') {|type| Config.sort_type = type}
+      opts.on('-p', '--pages NUMBER', 'Fetch number of page') {|number| Config.deep_page = number}
       opts.on('-l', '--log', 'Generate a log file in the current directory') {Config.log = true}
       opts.on('-h', '--help', 'Show this message') {puts(opts); exit}
       opts.parse!(args)
