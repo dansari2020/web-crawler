@@ -1,7 +1,6 @@
 module WebCrawler
   module Output
     class Base
-
       def initialize(data, adapter_name)
         @data = data
         @adapter_name = adapter_name || :html

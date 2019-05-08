@@ -14,17 +14,19 @@ module WebCrawler
       def [](url)
         uid = @db.get_first_value('SELECT uid FROM storage WHERE url = ?', url.to_s)
         return unless uid
+
         get_file_as_string(file_path(uid))
       end
 
       def get_file_as_string(filename)
         return unless File.exist?(filename)
+
         data = ''
-        f = File.open(filename, "r")
+        f = File.open(filename, 'r')
         f.each_line do |line|
           data += line
         end
-        return data
+        data
       end
 
       def file_path(file_name)
@@ -47,7 +49,7 @@ module WebCrawler
 
       def list
         list = []
-        @db.execute("SELECT url, uid FROM storage ORDER BY id") do |row|
+        @db.execute('SELECT url, uid FROM storage ORDER BY id') do |row|
           page_content = get_file_as_string(file_path(row[1]))
           list << [row[0], page_content]
         end
@@ -59,7 +61,7 @@ module WebCrawler
       end
 
       def urls
-        @db.execute("SELECT url FROM storage ORDER BY id").map{|t| t[0]}
+        @db.execute('SELECT url FROM storage ORDER BY id').map { |t| t[0] }
       end
 
       def has_url?(url)

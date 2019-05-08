@@ -8,36 +8,26 @@ module WebCrawler
         YAML.load_file('config/config.yml').fetch(key, nil)
       end
 
-      def export=(export)
-        @export = export
-      end
+      attr_writer :export
 
-      def log=(log)
-        @log = log
-      end
+      attr_writer :log
 
-      def log_path=(log_path)
-        @log_path = log_path
-      end
+      attr_writer :log_path
 
-      def sort_by=(sort_by)
-        @sort_by = sort_by
-      end
+      attr_writer :sort_by
 
       def sort_by
         @sort_by || 'name'
       end
 
-      def sort_type=(sort_type)
-        @sort_type = sort_type
-      end
+      attr_writer :sort_type
 
       def sort_type
         @sort_type || 'asc'
       end
 
       def deep_page=(deep_page)
-        @deep_page = (deep_page.to_s).to_i
+        @deep_page = deep_page.to_s.to_i
       end
     end
   end

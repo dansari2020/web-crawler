@@ -3,10 +3,7 @@
 ruby luma/main.rb
 ```
 ### Export products
-```ruby
-ruby luma/main.rb -e
-```
-##### Export html (default)
+##### Export html
 ```ruby
 ruby luma/main.rb -e html
 ```

@@ -1,16 +1,16 @@
 module WebCrawler
-  def WebCrawler.crawl(url, opts, &block)
+  def self.crawl(url, opts, &block)
     Main.crawl(url, opts, &block)
   end
 
   class Main
-    attr_reader :pages, :failed_crawls
+    attr_reader :pages, :failed_crawls, :crawled_times
     attr_accessor :url
 
     def initialize(url, opts = {})
       @url = @main_url = url
       @opts = opts
-      @default_headers = {'content-type'=> ['text/html']}
+      @default_headers = { 'content-type' => ['text/html'] }
       uri = URI.parse(url)
       @webpage = "#{uri.scheme}://#{uri.host}"
       Config.deep_page = opts[:deep_page] if opts[:deep_page]
@@ -21,36 +21,31 @@ module WebCrawler
       @urls = []
       @visited_url = []
       @failed_crawls = []
+      @crawled_times = nil
       @on_every_page_blocks = []
 
       yield self if block_given?
     end
 
     def self.crawl(url, opts)
-      self.new(url, opts) do |core|
+      new(url, opts) do |core|
         yield core if block_given?
         core.run
       end
     end
 
     def run
-      WebCrawler::Logger.info "Running web-crawler"
+      start = Time.now
+      WebCrawler::Logger.info 'Running web-crawler'
       loop do
-        Logger.info ("=" * 100), true
-        Logger.info "Craweling #{@url}", true
-        content_page = @pages[@url] # fetch from cache local
-        unless content_page # fetch from website
-          crawl = Crawl.new(@url)
-          unless crawl.run
-            @failed_crawls << @url
-            break if @urls.empty?
-            @url = @urls.pop
-            next
-          end
-          @pages[@url] = content_page = crawl.response.body
-          headers = crawl.response.to_hash
+        page = crawling(@url)
+        if page == false
+          @failed_crawls << @url
+          break if @urls.empty?
+
+          @url = @urls.pop
+          next
         end
-        page = WebCrawl::Page.new(@url, content_page, headers || @default_headers)
 
         do_page_blocks page
 
@@ -59,14 +54,31 @@ module WebCrawler
         @urls += found_links - @visited_url - @failed_crawls
         @urls.uniq!
         break if @urls.empty?
+
         @url = @urls.pop
         break if !@opts[:deep_page].nil? && @visited_url.size >= Config.deep_page
       end
+      finish = Time.now
+      @crawled_times = ((finish - start) * 1000).round
     end
 
     def on_every_page(&block)
       @on_every_page_blocks << block
       self
+    end
+
+    def crawling(url)
+      Logger.info ('=' * 100), true
+      Logger.info "Craweling #{@url}", true
+      content_page = @pages[url] # fetch from cache local
+      if content_page.nil? # fetch from website
+        crawl = Crawl.new(url)
+        return false unless crawl.run
+
+        @pages[@url] = content_page = crawl.response.body
+        headers = crawl.response.to_hash
+      end
+      WebCrawl::Page.new(@url, content_page, headers || @default_headers)
     end
 
     private

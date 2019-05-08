@@ -4,7 +4,7 @@ require 'byebug' # for creating the directory
 
 module Luma
   class Store
-    DIR = "db"
+    DIR = 'db'.freeze
     attr_accessor :db
 
     def initialize
@@ -18,7 +18,7 @@ module Luma
     end
 
     def create_product_table
-      unless exists_table? "products"
+      unless exists_table? 'products'
         db.execute <<-SQL
         CREATE TABLE products (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -63,25 +63,24 @@ module Luma
                   columns[:extra_information][:style],
                   columns[:extra_information][:material],
                   columns[:extra_information][:pattern],
-                  columns[:extra_information][:climate]]
-      )
+                  columns[:extra_information][:climate]])
     end
 
     def list(order_by = 'name', order_type = 'ASC')
       @list = []
-      db.execute( "SELECT id, name, price, description FROM products ORDER BY #{order_by} #{order_type}") do |row|
+      db.execute("SELECT id, name, price, description FROM products ORDER BY #{order_by} #{order_type}") do |row|
         product = {
-            name: row[1],
-            price: row[2],
-            description: row[3],
-            extra_information: {}
+          name: row[1],
+          price: row[2],
+          description: row[3],
+          extra_information: {}
         }
-        db.execute( "SELECT style, material, pattern, climate FROM extra_informations where extra_informations.product_id = ?", row[0]) do |extra|
+        db.execute('SELECT style, material, pattern, climate FROM extra_informations where extra_informations.product_id = ?', row[0]) do |extra|
           product[:extra_information] = {
-              style: extra[0],
-              material: extra[1],
-              pattern: extra[2],
-              climate: extra[3]
+            style: extra[0],
+            material: extra[1],
+            pattern: extra[2],
+            climate: extra[3]
           }
         end
         @list << product
@@ -90,9 +89,10 @@ module Luma
     end
 
     def exists?(name)
-      query = "SELECT * FROM products WHERE LOWER(name)=?"
+      query = 'SELECT * FROM products WHERE LOWER(name)=?'
       result = db.get_first_row query, name.downcase
       return false if result.nil?
+
       result
     end
 
@@ -100,6 +100,7 @@ module Luma
       query = "SELECT * FROM sqlite_master WHERE type='table' AND name=?"
       result = db.get_first_row query, table_name
       return false if result.nil?
+
       # Table already exists
       true
     end

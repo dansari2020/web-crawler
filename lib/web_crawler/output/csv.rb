@@ -8,8 +8,8 @@ module WebCrawler
 
       def export
         file_name = "#{Time.now.strftime('%Y-%m-%d')}.csv"
-        CSV.open(file_name, "w") do |csv|
-          csv << ["Name", "Price", "Description", "Extra Information"]
+        CSV.open(file_name, 'w') do |csv|
+          csv << ['Name', 'Price', 'Description', 'Extra Information']
           @data.each do |item|
             csv << [item[:name], item[:price], item[:description], extra(item[:extra_information])]
           end
@@ -21,10 +21,10 @@ module WebCrawler
 
       def extra(extra)
         [
-            "Style: #{extra[:style]}",
-            "Material: #{extra[:material]}",
-            "Pattern: #{extra[:pattern]}",
-            "Climate: #{extra[:climate]}"
+          "Style: #{extra[:style]}",
+          "Material: #{extra[:material]}",
+          "Pattern: #{extra[:pattern]}",
+          "Climate: #{extra[:climate]}"
         ].join(' | ')
       end
     end

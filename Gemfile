@@ -1,14 +1,15 @@
-source "https://rubygems.org"
-ruby "~> 2.5.1"
+source 'https://rubygems.org'
+ruby '~> 2.5.1'
 
-gem "httparty"
-gem "nokogiri"
-gem "byebug"
-gem "pry"
-gem "colorize"
-gem "sqlite3"
-
-gem "rspec"
+gem 'byebug'
+gem 'celluloid'
+gem 'colorize'
+gem 'httparty'
+gem 'nokogiri'
+gem 'pry'
+gem 'rspec'
+gem 'rubocop'
+gem 'sqlite3'
 group :test do
   gem 'vcr', require: false
   gem 'webmock'

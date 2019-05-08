@@ -13,10 +13,12 @@ module WebCrawl
 
     def links
       return @links unless @links.nil? || @links.empty?
-      return @links if !doc
-      doc.search("//a[@href]").each do |a|
+      return @links unless doc
+
+      doc.search('//a[@href]').each do |a|
         u = a['href']
-        next if u.nil? || u.empty? || (u =~ URI::regexp).nil?
+        next if u.nil? || u.empty? || (u =~ URI::DEFAULT_PARSER.make_regexp).nil?
+
         @links << path_url(u)
       end
       @links.uniq!
@@ -33,7 +35,12 @@ module WebCrawl
 
     def doc
       return @doc if @doc
-      @doc = Nokogiri::HTML(@body) if @body && html? rescue nil
+
+      begin
+        @doc = Nokogiri::HTML(@body) if @body && html?
+      rescue StandardError
+        nil
+      end
     end
 
     def path_url(link)
