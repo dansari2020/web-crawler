@@ -38,3 +38,8 @@ ruby luma/main.rb -l
 ```ruby
 ruby luma/main.rb -p 5
 ```
+
+### Sample
+```ruby
+ruby luma/main.rb -l -p 10 -e html -s price -t desc 
+```

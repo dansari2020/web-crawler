@@ -1,6 +1,5 @@
 require 'sqlite3'
-require 'fileutils' # for creating the directory
-require 'byebug' # for creating the directory
+require 'fileutils'
 
 module Luma
   class Store

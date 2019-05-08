@@ -1,4 +1,3 @@
-require 'byebug'
 require_relative '../lib/web_crawler'
 require_relative 'store'
 

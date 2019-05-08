@@ -1,3 +1,4 @@
 LOG_DIR: 'logs'
 STORAGE_DIR: 'storage'
 DB_DIR: 'db'
+EXPORT_DIR: 'exports'

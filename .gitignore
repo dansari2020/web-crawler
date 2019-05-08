@@ -54,6 +54,7 @@ build-iPhoneSimulator/
 db
 storage
 logs
+exports
 !/lib/web_crawler/storage/
 /spec/fixtures/vcr_cassettes/
 !/spec/fixtures/vcr_cassettes/home.yml
