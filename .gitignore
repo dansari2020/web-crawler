@@ -55,3 +55,5 @@ db
 storage
 logs
 !/lib/web_crawler/storage/
+/spec/fixtures/vcr_cassettes/
+!/spec/fixtures/vcr_cassettes/home.yml

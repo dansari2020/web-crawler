@@ -22,6 +22,8 @@ module WebCrawler
       @response
     end
 
+    private
+
     def get_response(url)
       start = Time.now
       escaped_address = URI.escape(url)
