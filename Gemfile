@@ -8,7 +8,6 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'pry'
 gem 'rspec'
-gem 'rubocop'
 gem 'sqlite3'
 group :test do
   gem 'vcr', require: false

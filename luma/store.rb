@@ -18,23 +18,20 @@ module Luma
     end
 
     def create_product_table
-      unless exists_table? 'products'
-        db.execute <<-SQL
-        CREATE TABLE products (
+      @db.execute_batch <<-SQL
+          CREATE TABLE IF NOT EXISTS products (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           url VARCHAR,
           name VARCHAR,
           price FLOAT,
           description VARCHAR
         );
-        SQL
-      end
+      SQL
     end
 
     def create_extra_table
-      unless exists_table? 'extra_informations'
-        db.execute <<-SQL
-        CREATE TABLE extra_informations (
+      @db.execute_batch <<-SQL
+          CREATE TABLE IF NOT EXISTS extra_informations (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           product_id INTEGER,
           style VARCHAR,
@@ -46,8 +43,7 @@ module Luma
             REFERENCES products(product_id)
             ON DELETE CASCADE
          );
-        SQL
-      end
+      SQL
     end
 
     def find_or_create(columns)

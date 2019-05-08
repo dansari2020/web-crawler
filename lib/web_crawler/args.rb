@@ -21,7 +21,7 @@ module WebCrawler
     end
 
     def self.validates_required_args
-      if !Config.export.nil? && !WebCrawler::Output.respond_to?(Config.export)
+      unless Config.export.nil? || WebCrawler::Output.respond_to?(Config.export)
         raise WebCrawler::Errors::ArgError, 'The format is not supported. Please use one of them (csv, html, json)'
       end
     end

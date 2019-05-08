@@ -42,17 +42,20 @@ module Luma
     end
 
     def parse
-      WebCrawler.crawl(URL, @options) do |main|
+      result = WebCrawler.crawl(URL, @options) do |main|
         main.on_every_page do |page|
           doc = page.doc
           next if doc.css('body.catalog-product-view').empty?
 
           main = doc.xpath('//main').css('div.columns div.column.main')
-          extra = main.css('div.product.info.detailed div.product.data.items div#additional div.additional-attributes-wrapper.table-wrapper table#product-attribute-specs-table tbody tr')
+          extra = main.css('div.product.info.detailed div.product.data.items div#additional div.additional-attributes-wrapper.table-wrapper '\
+              'table#product-attribute-specs-table tbody tr')
           row = {
             name: main.css('div.product-info-main div.page-title-wrapper.product h1.page-title span.base').text,
-            price: main.css('div.product-info-main div.product-info-price div.price-box.price-final_price span.normal-price span.price-container.price-final_price span.price-wrapper').text,
-            description: main.css('div.product.info.detailed div.product.data.items div#description div.product,attribute.description div.value p').map(&:text).join("\n"),
+            price: main.css('div.product-info-main div.product-info-price div.price-box.price-final_price span.normal-price '\
+              'span.price-container.price-final_price span.price-wrapper').text,
+            description: main.css('div.product.info.detailed div.product.data.items div#description div.product.attribute.description '\
+              'div.value p').map(&:text).join("\n"),
             url: page.url,
             extra_information: {
               style: extra[0].css('td.col.data').text,
@@ -65,6 +68,8 @@ module Luma
           @store.find_or_create(row)
         end
       end
+      WebCrawler::Logger.info '=' * 100
+      WebCrawler::Logger.info "Time: #{result.crawled_times} seconds"
       WebCrawler::Logger.info '=' * 100
       do_export if WebCrawler::Config.export
     end

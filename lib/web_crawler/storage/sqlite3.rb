@@ -38,12 +38,12 @@ module WebCrawler
       end
 
       def []=(url, page_content)
-        unless has_url?(url)
-          uid = ::SecureRandom.hex
-          @db.execute('INSERT INTO storage (url, uid) VALUES(?, ?)', url.to_s, uid)
-          open(file_path(uid), 'wb') do |file|
-            file << page_content
-          end
+        return if has_url?(url)
+
+        uid = ::SecureRandom.hex
+        @db.execute('INSERT INTO storage (url, uid) VALUES(?, ?)', url.to_s, uid)
+        open(file_path(uid), 'wb') do |file|
+          file << page_content
         end
       end
 

@@ -8,16 +8,14 @@ module WebCrawler
     attr_accessor :url
 
     def initialize(url, opts = {})
-      @url = @main_url = url
-      @opts = opts
-      @default_headers = { 'content-type' => ['text/html'] }
-      uri = URI.parse(url)
-      @webpage = "#{uri.scheme}://#{uri.host}"
+      WebCrawler::Logger.setting
       Config.deep_page = opts[:deep_page] if opts[:deep_page]
       storage = WebCrawler::Storage.SQLite3
       @pages = PageStore.new(storage)
-
-      WebCrawler::Logger.setting
+      @url = @main_url = url
+      @opts = opts
+      @default_headers = { 'content-type' => ['text/html'] }
+      @website = website(url)
       @urls = []
       @visited_url = []
       @failed_crawls = []
@@ -39,7 +37,7 @@ module WebCrawler
       WebCrawler::Logger.info 'Running web-crawler'
       loop do
         page = crawling(@url)
-        if page == false
+        if page == :failed
           @failed_crawls << @url
           break if @urls.empty?
 
@@ -49,14 +47,13 @@ module WebCrawler
 
         do_page_blocks page
 
-        found_links = page.links.select { |url| url.start_with?(@webpage) && !ignore_url?(url) }
+        found_links = page.links.select { |url| url.start_with?(@website) && !ignore_url?(url) }
         @visited_url << @url
         @urls += found_links - @visited_url - @failed_crawls
         @urls.uniq!
-        break if @urls.empty?
+        break if @urls.empty? || (Config.deep_page.to_i.positive? && @visited_url.size >= Config.deep_page)
 
         @url = @urls.pop
-        break if !@opts[:deep_page].nil? && @visited_url.size >= Config.deep_page
       end
       finish = Time.now
       @crawled_times = ((finish - start) * 1000).round
@@ -73,7 +70,7 @@ module WebCrawler
       content_page = @pages[url] # fetch from cache local
       if content_page.nil? # fetch from website
         crawl = Crawl.new(url)
-        return false unless crawl.run
+        return :failed unless crawl.run
 
         @pages[@url] = content_page = crawl.response.body
         headers = crawl.response.to_hash
@@ -101,6 +98,11 @@ module WebCrawler
       else
         [object]
       end
+    end
+
+    def website(url)
+      uri = URI.parse(url)
+      "#{uri.scheme}://#{uri.host}"
     end
   end
 end
