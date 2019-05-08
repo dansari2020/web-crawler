@@ -27,15 +27,15 @@ module Luma
 
     def log(row)
       log_extra = [
-        "Style: #{row[:extra_information][:style]}",
-        "Material: #{row[:extra_information][:material]}",
-        "Pattern: #{row[:extra_information][:pattern]}",
-        "Climate: #{row[:extra_information][:climate]}"
+        "Style: #{row[:extra_information][:style].light_blue}",
+        "Material: #{row[:extra_information][:material].light_blue}",
+        "Pattern: #{row[:extra_information][:pattern].light_blue}",
+        "Climate: #{row[:extra_information][:climate].light_blue}"
       ]
       log_product = [
-        "Name: #{row[:name]}",
-        "Price: #{row[:price]}",
-        "Description: #{row[:description]}",
+        "Name: #{row[:name].light_blue}",
+        "Price: #{row[:price].light_blue}",
+        "Description: #{row[:description].light_blue}",
         "Extra information: #{log_extra.join(' | ')}"
       ]
       WebCrawler::Logger.info log_product.join("\r\n")

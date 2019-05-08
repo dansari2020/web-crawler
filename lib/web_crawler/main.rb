@@ -65,8 +65,8 @@ module WebCrawler
     end
 
     def crawling(url)
-      Logger.info ('=' * 100), true
-      Logger.info "Craweling #{@url}", true
+      Logger.info ('=' * 100).light_yellow, true
+      Logger.info "Crawling #{URI.escape(@url)}".light_magenta, true
       content_page = @pages[url] # fetch from cache local
       if content_page.nil? # fetch from website
         crawl = Crawl.new(url)
