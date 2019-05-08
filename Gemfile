@@ -5,7 +5,11 @@ gem "httparty"
 gem "nokogiri"
 gem "byebug"
 gem "pry"
-gem "rspec"
 gem "colorize"
 gem "sqlite3"
-gem "vcr"
+
+gem "rspec"
+group :test do
+  gem 'vcr', require: false
+  gem 'webmock'
+end

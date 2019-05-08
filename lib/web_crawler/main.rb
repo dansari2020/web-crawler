@@ -4,22 +4,23 @@ module WebCrawler
   end
 
   class Main
-    attr_reader :pages
+    attr_reader :pages, :failed_crawls
     attr_accessor :url
 
     def initialize(url, opts = {})
-      @url = url
+      @url = @main_url = url
       @opts = opts
       @default_headers = {'content-type'=> ['text/html']}
       uri = URI.parse(url)
       @webpage = "#{uri.scheme}://#{uri.host}"
-
+      Config.deep_page = opts[:deep_page] if opts[:deep_page]
       storage = WebCrawler::Storage.SQLite3
       @pages = PageStore.new(storage)
 
       WebCrawler::Logger.setting
       @urls = []
       @visited_url = []
+      @failed_crawls = []
       @on_every_page_blocks = []
 
       yield self if block_given?
@@ -41,7 +42,8 @@ module WebCrawler
         unless content_page # fetch from website
           crawl = Crawl.new(@url)
           unless crawl.run
-            @visited_url << @url
+            @failed_crawls << @url
+            break if @urls.empty?
             @url = @urls.pop
             next
           end
@@ -54,14 +56,12 @@ module WebCrawler
 
         found_links = page.links.select { |url| url.start_with?(@webpage) && !ignore_url?(url) }
         @visited_url << @url
-        @urls += found_links - @visited_url
+        @urls += found_links - @visited_url - @failed_crawls
         @urls.uniq!
         break if @urls.empty?
         @url = @urls.pop
         break if !@opts[:deep_page].nil? && @visited_url.size >= Config.deep_page
       end
-
-      self
     end
 
     def on_every_page(&block)
@@ -78,7 +78,17 @@ module WebCrawler
     end
 
     def ignore_url?(url)
-      @opts[:ignore_urls].select { |skip_url| url.start_with?(skip_url) }.size.positive?
+      wrap(@opts[:ignore_urls]).select { |skip_url| url.start_with?(skip_url) }.size.positive?
+    end
+
+    def wrap(object)
+      if object.nil?
+        []
+      elsif object.is_a?(Array)
+        object
+      else
+        [object]
+      end
     end
   end
 end

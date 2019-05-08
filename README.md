@@ -34,3 +34,10 @@ ruby luma/main.rb -s price -t desc
 ```ruby
 ruby luma/main.rb -l
 ```
+
+### Deep Page
+##### Fetch number of pages
+###### Fetch just 5 pages
+```ruby
+ruby luma/main.rb -p 5
+```

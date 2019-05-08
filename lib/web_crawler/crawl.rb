@@ -27,6 +27,8 @@ module WebCrawler
       finish = Time.now()
       response_time = ((finish - start) * 1000).round
       return response, response_time
+    rescue
+      return false, 0
     end
   end
 end
